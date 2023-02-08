@@ -19,8 +19,8 @@ pipeline {
         }
         stage('Docker_push'){
             steps {
-                withCredentials([string(credentialsId: 'saimran', variable: 'Imran@123')]) {
-                sh 'sudo docker login -u manipal2209 -p Imran@328'
+                withCredentials([string(credentialsId: 'saimran', variable: 'docker_hubpwd')]) {
+                sh 'sudo docker login -u manipal2209 -p ${docker_hubpwd}'
                 sh 'sudo docker push saimran/capstone_01_image'
                     
                 }
